@@ -10,11 +10,11 @@ function App() {
         <h1>Liblery app</h1>
       </header>
       <main className="app-main">
-        <div className="app-left-colump">
+        <div className="app-left-column">
           <BookList />
         </div>
-        <div className="app-right-colum">
-          <Filter />
+        <div className="app-right-column">
+          {/* <Filter /> */}
           <BookForm />
         </div>
       </main>
