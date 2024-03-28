@@ -1,7 +1,6 @@
 import './App.css'
 import BookForm from './components/BookForm/BookForm'
 import BookList from './components/BookList/BookList'
-import Filter from './components/Filter/Filter'
 
 function App() {
   return (

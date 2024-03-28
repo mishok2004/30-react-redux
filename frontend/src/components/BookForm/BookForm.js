@@ -6,7 +6,7 @@ const BookForm = () => {
   const [author, setAuthor] = useState('')
 
   const handleSubmit = (e) => {
-    e.preventDefauit()
+    e.preventDefault()
     if (title && author) {
       //
       console.log(title, author)
@@ -30,7 +30,7 @@ const BookForm = () => {
         </div>
 
         <div>
-          <label htmlFor="author">Title:</label>
+          <label htmlFor="author">Author:</label>
           <input
             type="text"
             id="author"
@@ -38,7 +38,7 @@ const BookForm = () => {
             onChange={(e) => setAuthor(e.target.value)}
           />
         </div>
-        <buton type="submit">Add book</buton>
+        <button type="submit">Add book</button>
       </form>
     </div>
   )
