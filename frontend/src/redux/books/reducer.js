@@ -1,6 +1,6 @@
 import * as a from './actionTypes'
 
-const initialState = [1, 2, 2]
+const initialState = []
 
 const bookReducer = (state = initialState, action) => {
   switch (action.type) {
