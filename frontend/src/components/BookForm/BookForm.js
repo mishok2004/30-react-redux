@@ -17,7 +17,6 @@ const BookForm = () => {
         title,
         author,
       }
-      console.log(addBook(book))
       dispatch(addBook(book))
 
       setTitle('')
