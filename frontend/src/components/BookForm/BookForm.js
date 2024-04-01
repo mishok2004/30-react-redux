@@ -12,7 +12,11 @@ const BookForm = () => {
 
   const handlAddRandomBook = () => {
     const randomIndex = Math.floor(Math.random() * booksDate.length)
-    const randomBook = { ...booksDate[randomIndex], id: uuidv4() }
+    const randomBook = {
+      ...booksDate[randomIndex],
+      id: uuidv4(),
+      isFavorite: false,
+    }
 
     dispatch(addBook(randomBook))
   }
@@ -24,6 +28,7 @@ const BookForm = () => {
         title,
         author,
         id: uuidv4(),
+        isFavorite: false,
       }
       dispatch(addBook(book))
 
