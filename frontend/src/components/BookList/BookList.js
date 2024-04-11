@@ -4,7 +4,7 @@ import { BsBookmarkStarFill, BsBookmarkStar } from 'react-icons/bs'
 import {
   selectTitleFilter,
   selectAuthorFilter,
-  selectYearFilter,
+  selectFavoriteFilter,
 } from '../../redux/filters/model/selector/selectTitleFilter'
 import { delBook, addFavorite } from '../../redux/books/actionCreators'
 
@@ -15,7 +15,7 @@ const BookList = () => {
 
   const titleFilter = useSelector(selectTitleFilter)
   const authorFilter = useSelector(selectAuthorFilter)
-  const yearFilter = useSelector(selectYearFilter)
+  const favoriteFilter = useSelector(selectFavoriteFilter)
 
   const dispatch = useDispatch()
   const onDeleteBook = (id) => {
@@ -33,8 +33,9 @@ const BookList = () => {
     const matchesAuthor = book.author
       .toLowerCase()
       .includes(authorFilter.toLowerCase())
+    const matchesFavorite = favoriteFilter ? book.isFavorite : true
 
-    return matchesTitle && matchesAuthor
+    return matchesTitle && matchesAuthor && matchesFavorite
   })
 
   return (

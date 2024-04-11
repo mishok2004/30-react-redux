@@ -2,12 +2,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   selectTitleFilter,
   selectAuthorFilter,
-  selectYearFilter,
+  // selectYearFilter,
+  selectFavoriteFilter,
 } from '../../redux/filters/model/selector/selectTitleFilter'
 import {
   setTitleFilter,
   setAuthorFilter,
-  setYearFilter,
+  // setYearFilter,
+  setFavoriteFilter,
   resetFilters,
 } from '../../redux/filters/model/slices/filterSlice'
 
@@ -16,7 +18,8 @@ import './Filter.css'
 const Filter = () => {
   const titleFilter = useSelector(selectTitleFilter)
   const authorFilter = useSelector(selectAuthorFilter)
-  const yearFilter = useSelector(selectYearFilter)
+  // const yearFilter = useSelector(selectYearFilter)
+  const favoriteFilter = useSelector(selectFavoriteFilter)
 
   const dispatch = useDispatch()
   const handleTitleFilter = (e) => {
@@ -25,8 +28,11 @@ const Filter = () => {
   const handleAuthorFilter = (e) => {
     dispatch(setAuthorFilter(e))
   }
-  const handleYearFilter = (e) => {
-    dispatch(setYearFilter(e))
+  // const handleYearFilter = (e) => {
+  //   dispatch(setYearFilter(e))
+  // }
+  const handleFavoriteFilter = () => {
+    dispatch(setFavoriteFilter())
   }
 
   const handlerResetFilters = () => {
@@ -44,6 +50,7 @@ const Filter = () => {
             placeholder="Filter by title ..."
           ></input>
         </div>
+
         <div className="filter-group">
           <input
             value={authorFilter}
@@ -52,14 +59,18 @@ const Filter = () => {
             placeholder="Filter by author ..."
           ></input>
         </div>
+
         <div className="filter-group">
-          <input
-            value={yearFilter}
-            onChange={(e) => handleYearFilter(e.target.value)}
-            type="number"
-            placeholder="Filter by year ..."
-          ></input>
+          <label>
+            <input
+              type="checkbox"
+              checked={favoriteFilter}
+              onChange={handleFavoriteFilter}
+            />
+            Only favorite
+          </label>
         </div>
+
         <button type="button" onClick={handlerResetFilters}>
           Reset filters
         </button>
