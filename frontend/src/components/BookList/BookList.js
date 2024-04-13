@@ -5,8 +5,8 @@ import {
   selectTitleFilter,
   selectAuthorFilter,
   selectFavoriteFilter,
-} from '../../redux/filters/model/selector/selectTitleFilter'
-import { delBook, addFavorite } from '../../redux/books/actionCreators'
+} from '../../redux/filters/model/selector/selectFilter'
+import { delBook, addFavorite } from '../../redux/books/model/slices/bookSlice'
 
 import './BookList.css'
 
