@@ -6,12 +6,13 @@ import {
   selectAuthorFilter,
   selectFavoriteFilter,
 } from '../../redux/filters/model/selector/selectFilter'
-import { delBook, addFavorite } from '../../redux/books/model/slices/bookSlice'
+import { delBook, addFavorite } from '../../redux/books/model/slices/booksSlice'
+import { selectBooks } from '../../redux/books/model/selector/selectBooks'
 
 import './BookList.css'
 
 const BookList = () => {
-  const books = useSelector((state) => state.books)
+  const books = useSelector(selectBooks)
 
   const titleFilter = useSelector(selectTitleFilter)
   const authorFilter = useSelector(selectAuthorFilter)
