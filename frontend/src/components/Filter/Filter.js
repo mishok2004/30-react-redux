@@ -4,12 +4,7 @@ import {
   selectAuthorFilter,
   selectFavoriteFilter,
 } from '../../redux/filters/model/selector/selectFilter'
-import {
-  setTitleFilter,
-  setAuthorFilter,
-  setFavoriteFilter,
-  resetFilters,
-} from '../../redux/filters/model/slices/filterSlice'
+import { filterActions } from '../../redux/filters/model/slices/filterSlice'
 
 import './Filter.css'
 
@@ -20,18 +15,18 @@ const Filter = () => {
 
   const dispatch = useDispatch()
   const handleTitleFilter = (e) => {
-    dispatch(setTitleFilter(e))
+    dispatch(filterActions.setTitleFilter(e))
   }
   const handleAuthorFilter = (e) => {
-    dispatch(setAuthorFilter(e))
+    dispatch(filterActions.setAuthorFilter(e))
   }
 
   const handleFavoriteFilter = () => {
-    dispatch(setFavoriteFilter())
+    dispatch(filterActions.setFavoriteFilter())
   }
 
   const handlerResetFilters = () => {
-    dispatch(resetFilters())
+    dispatch(filterActions.resetFilters())
   }
 
   return (

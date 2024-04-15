@@ -23,11 +23,5 @@ const filterSlice = createSlice({
   },
 })
 
-export const {
-  setTitleFilter,
-  setAuthorFilter,
-  setFavoriteFilter,
-  resetFilters,
-} = filterSlice.actions
-
+export const { actions: filterActions } = filterSlice
 export const { reducer: filterReducer } = filterSlice

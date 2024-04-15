@@ -6,7 +6,7 @@ import {
   selectAuthorFilter,
   selectFavoriteFilter,
 } from '../../redux/filters/model/selector/selectFilter'
-import { delBook, addFavorite } from '../../redux/books/model/slices/booksSlice'
+import { booksActions } from '../../redux/books/model/slices/booksSlice'
 import { selectBooks } from '../../redux/books/model/selector/selectBooks'
 
 import './BookList.css'
@@ -20,11 +20,11 @@ const BookList = () => {
 
   const dispatch = useDispatch()
   const onDeleteBook = (id) => {
-    dispatch(delBook(id))
+    dispatch(booksActions.delBook(id))
   }
 
   const onTogleFavoriteBook = (id) => {
-    dispatch(addFavorite(id))
+    dispatch(booksActions.addFavorite(id))
   }
 
   const filtredBooks = books.filter((book) => {
