@@ -57,13 +57,13 @@ const BookForm = () => {
           />
         </div>
         <button type="submit">Add book</button>
-        <button type="booton" onClick={handlAddRandomBook}>
-          Add random book
-        </button>
-        <button type="booton" onClick={handlAddRandomBookByAPI}>
-          Add random book by API
-        </button>
       </form>
+      <button type="booton" onClick={handlAddRandomBook}>
+        Add random book
+      </button>
+      <button type="booton" onClick={handlAddRandomBookByAPI}>
+        Add random book by API
+      </button>
     </div>
   )
 }
