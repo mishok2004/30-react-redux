@@ -18,7 +18,8 @@ const BookForm = () => {
     dispatch(booksActions.addBook(randomBook))
   }
 
-  const handlAddRandomBookByAPI = () => dispatch(fetchBook())
+  const handlAddRandomBookByAPI = () =>
+    dispatch(fetchBook('http://localhost:4000/random-book'))
 
   const handleSubmit = (e) => {
     e.preventDefault()
