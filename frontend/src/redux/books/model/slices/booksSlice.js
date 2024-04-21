@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { fetchBook } from '../services/fetchBook'
+import { createBookWithId } from '../../../../utils/createBookWithId'
 
 const initialState = []
 
@@ -15,6 +17,13 @@ const booksSlice = createSlice({
           ? { ...book, isFavorite: !book.isFavorite }
           : book
       ),
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchBook.fulfilled, (state, action) => {
+      if (action.payload.title && action.payload.author) {
+        return [...state, createBookWithId(action.payload, 'by API')]
+      }
+    })
   },
 })
 

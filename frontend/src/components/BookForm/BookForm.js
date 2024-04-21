@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { randomBook } from '../../redux/books/model/services/fetchRandomBook'
+import { fetchBook } from '../../redux/books/model/services/fetchBook'
 import booksDate from '../../data/books.json'
 import { createBookWithId } from '../../utils/createBookWithId'
 import { booksActions } from '../../redux/books/model/slices/booksSlice'
@@ -17,7 +17,7 @@ const BookForm = () => {
     dispatch(booksActions.addBook(randomBook))
   }
 
-  const handlAddRandomBookByAPI = () => dispatch(randomBook)
+  const handlAddRandomBookByAPI = () => dispatch(fetchBook())
 
   const handleSubmit = (e) => {
     e.preventDefault()
