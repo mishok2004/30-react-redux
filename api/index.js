@@ -6,11 +6,17 @@ const app = express()
 
 app.use(cors())
 
-app.get('/random-book', (req, res) => {
+const getRandonBook = () => {
   const randomIndex = Math.floor(Math.random() * booksData.length)
-  const randomBook = booksData[randomIndex]
+  return booksData[randomIndex]
+}
 
-  res.json(randomBook)
+app.get('/random-book', (req, res) => res.json(getRandonBook()))
+
+app.get('/random-book-delayed', (req, res) => {
+  setTimeout(() => {
+    res.json(getRandonBook())
+  }, 2000)
 })
 
 const port = process.env.PORT || 4000
