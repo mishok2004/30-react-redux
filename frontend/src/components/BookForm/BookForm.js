@@ -4,6 +4,7 @@ import { fetchBook } from '../../redux/books/model/services/fetchBook'
 import booksDate from '../../data/books.json'
 import { createBookWithId } from '../../utils/createBookWithId'
 import { booksActions } from '../../redux/books/model/slices/booksSlice'
+import { errorActions } from '../../redux/error/model/slice/errorSlise'
 import './BookForm.css'
 
 const BookForm = () => {
@@ -27,6 +28,8 @@ const BookForm = () => {
 
       setTitle('')
       setAuthor('')
+    } else {
+      dispatch(errorActions.setError('You must fill title and author'))
     }
   }
 
